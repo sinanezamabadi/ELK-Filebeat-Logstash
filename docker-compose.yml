@@ -1,6 +1,17 @@
 version: '2'
 
 services:
+  web: # Flask and uWSGI
+    container_name: web 
+    restart: always
+    build: ./app
+    volumes:
+      - type: bind
+        source: ./app
+        target: /src
+    command: uwsgi --ini ./uwsgi.ini
+    networks: 
+      - elk
   nginx:
     image: nginx
     volumes:
@@ -11,6 +22,7 @@ services:
       - "80:80"
     networks:
       - elk
+        
 
   filebeat:
     image: prima/filebeat
