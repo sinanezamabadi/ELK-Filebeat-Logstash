@@ -1,5 +1,19 @@
 # Catching nginx logs to ELK with Docker
+#############
 
+for execute file beat
+make sure you access root to ./filebeat 
+
+chown root filebeat.yml 
+
+ sudo chmod go-w filebeat.yml
+
+
+
+
+
+
+#############
 ## Description:
 This repo represents set of containers used to generate and collect logs from one or any number of applications (nginx in this example) to log collector (logstash + elasticsearch + kibana).
 
